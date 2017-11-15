@@ -1,19 +1,19 @@
 # fast-value
 
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/) [![Build Status](https://travis-ci.org/delvedor/fast-value.svg?branch=master)](https://travis-ci.org/delvedor/fast-value)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/) [![Build Status](https://travis-ci.org/delvedor/fast-iterator.svg?branch=init)](https://travis-ci.org/delvedor/fast-iterator)
 
 Fast execution of an array of functions with the same value as input that can be altered.
 
 <a name="install"></a>
 ## Install
 ```
-npm i fast-value --save
+npm i fast-iterator --save
 ```
 
 <a name="usage"></a>
 ## Usage
 ```js
-const fast = require('fast-value')
+const fast = require('fast-iterator')
 
 fast(
   [fn1, fn2, fn3], // the array of functions to execute

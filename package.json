@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/delvedor/fast-value.git"
+    "url": "git+https://github.com/delvedor/fast-iterator.git"
   },
   "keywords": [
     "speed",
@@ -21,9 +21,9 @@
   "author": "Tomas Della Vedova - @delvedor (http://delved.org)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/delvedor/fast-value/issues"
+    "url": "https://github.com/delvedor/fast-iterator/issues"
   },
-  "homepage": "https://github.com/delvedor/fast-value#readme",
+  "homepage": "https://github.com/delvedor/fast-iterator#readme",
   "devDependencies": {
     "standard": "^10.0.3",
     "tap": "^10.7.3"
