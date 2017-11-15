@@ -1,4 +1,4 @@
-# fast-value
+# fast-iterator
 
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/) [![Build Status](https://travis-ci.org/delvedor/fast-iterator.svg?branch=init)](https://travis-ci.org/delvedor/fast-iterator)
 
@@ -46,7 +46,6 @@ function iterator (fn, result, done) {
 function done (err, result) {
   console.log(err || result, this)
 }
-
 ```
 
 <a name="acknowledgements"></a>
