@@ -49,7 +49,7 @@ function fast (functions, context) {
 
     this._done = function (err, value) {
       if (err) {
-        that.done.call(that.context, err, null)
+        that.done.call(that.context, err, that.value)
         holder.release(that)
         return
       }
@@ -63,7 +63,7 @@ function fast (functions, context) {
     }
 
     this._reject = function (err) {
-      that.done.call(that.context, err, null)
+      that.done.call(that.context, err, that.value)
       holder.release(that)
     }
   }
