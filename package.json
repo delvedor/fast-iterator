@@ -1,7 +1,7 @@
 {
-  "name": "fast-value",
-  "version": "0.0.1",
-  "description": "Fast execution of an array of function with the same value as input that can be altered.",
+  "name": "fast-iterator",
+  "version": "0.1.0",
+  "description": "Fast execution of an array of functions with the same value as input that can be altered.",
   "main": "index.js",
   "scripts": {
     "test": "standard && tap test.js"
@@ -10,7 +10,14 @@
     "type": "git",
     "url": "git+https://github.com/delvedor/fast-value.git"
   },
-  "keywords": [],
+  "keywords": [
+    "speed",
+    "value",
+    "update",
+    "series",
+    "each",
+    "iterator"
+  ],
   "author": "Tomas Della Vedova - @delvedor (http://delved.org)",
   "license": "MIT",
   "bugs": {
