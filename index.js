@@ -1,15 +1,10 @@
 'use strict'
 
-const assert = require('assert')
 const reusify = require('reusify')
 
 function fast (functions, context) {
-  assert(Array.isArray(functions), 'The first parameter should be an array of functions')
   const holder = reusify(Holder)
-  functions = functions.map(fn => {
-    assert(typeof fn === 'function', 'The array should contain only functions')
-    return fn.bind(context)
-  })
+  functions = functions.map(fn => fn.bind(context))
 
   return function _fast (iterator, value, done) {
     var instance = holder.get()
