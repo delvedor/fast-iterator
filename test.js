@@ -101,3 +101,42 @@ test('Throw on wrong parameters', t => {
     t.is(err.message, 'The array should contain only functions')
   }
 })
+
+test('Clean next', t => {
+  t.plan(10)
+
+  const v1 = { hello: 'world' }
+  const context = { context: true }
+
+  const fast = Fast([fn1, fn2, fn3], context)
+  t.is(typeof fast, 'function')
+  fast(iterator.bind({ a: 'a', b: 'b' }), v1, done)
+
+  function iterator (fn, value, next) {
+    return fn(this.a, this.b, value, next)
+  }
+
+  function fn1 (a, b, value, done) {
+    t.deepEqual(value, v1)
+    t.deepEqual(this, context)
+    done()
+  }
+
+  function fn2 (a, b, value, done) {
+    t.deepEqual(value, v1)
+    t.deepEqual(this, context)
+    done()
+  }
+
+  function fn3 (a, b, value, done) {
+    t.deepEqual(value, v1)
+    t.deepEqual(this, context)
+    done()
+  }
+
+  function done (err, value) {
+    t.error(err)
+    t.deepEqual(this, context)
+    t.deepEqual(value, v1)
+  }
+})
