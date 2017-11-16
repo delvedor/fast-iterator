@@ -1,6 +1,6 @@
 {
   "name": "fast-iterator",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Fast execution of an array of functions with the same value as input that can be altered.",
   "main": "index.js",
   "scripts": {
