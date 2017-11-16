@@ -53,12 +53,12 @@ function fast (functions, context) {
         holder.release(that)
         return
       }
-      that.value = value
+      if (value !== undefined) that.value = value
       that._next()
     }
 
     this._resolve = function (value) {
-      that.value = value
+      if (value !== undefined) that.value = value
       that._next()
     }
 
