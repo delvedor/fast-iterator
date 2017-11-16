@@ -84,24 +84,6 @@ test('In case of error should skip to done', t => {
   }
 })
 
-test('Throw on wrong parameters', t => {
-  t.plan(2)
-
-  try {
-    Fast(null)
-    t.fail()
-  } catch (err) {
-    t.is(err.message, 'The first parameter should be an array of functions')
-  }
-
-  try {
-    Fast([null])
-    t.fail()
-  } catch (err) {
-    t.is(err.message, 'The array should contain only functions')
-  }
-})
-
 test('Clean next', t => {
   t.plan(10)
 
