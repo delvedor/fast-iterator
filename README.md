@@ -48,6 +48,14 @@ function done (err, result) {
 }
 ```
 
+Output:
+```
+a b { hello: 'world' } { context: true }
+a b { ciao: 'mondo' } { context: true }
+a b { winter: 'is coming' } { context: true }
+{ winter: 'has come' } { context: true }
+```
+
 <a name="acknowledgements"></a>
 ## Acknowledgements
 
