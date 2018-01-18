@@ -10,6 +10,7 @@ function fast (functions, context) {
     var instance = holder.get()
     instance.iterator = iterator
     instance.functions = functions
+    instance.functionsLen = functions.length
     instance.context = context
     instance.done = done
     instance.i = 0
@@ -21,6 +22,7 @@ function fast (functions, context) {
     this.next = null
     this.value = null
     this.functions = null
+    this.functionsLen = 0
     this.context = null
     this.done = null
     this.iterator = null
@@ -29,7 +31,7 @@ function fast (functions, context) {
     var that = this
 
     this._next = function () {
-      if (that.i === that.functions.length) {
+      if (that.i === that.functionsLen) {
         that.done.call(that.context, null, that.value)
         holder.release(that)
         return
