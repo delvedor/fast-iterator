@@ -212,3 +212,43 @@ test('In case of error should skip to done (with promises)', t => {
     t.deepEqual(value, v2)
   }
 })
+
+test('Release holder before its natural end', t => {
+  t.plan(5)
+
+  const v1 = { hello: 'world' }
+  const v2 = { ciao: 'mondo' }
+  const v3 = { winter: 'is coming' }
+  const context = { context: true }
+
+  const fast = Fast([fn1, fn2, fn3], context)
+  t.is(typeof fast, 'function')
+  fast(iterator.bind({ a: 'a', b: 'b' }), v1, done)
+
+  function iterator (fn, value, next, release) {
+    if (value.winter) {
+      return release()
+    }
+    return fn(this.a, this.b, value, next)
+  }
+
+  function fn1 (a, b, value, done) {
+    t.deepEqual(value, v1)
+    t.deepEqual(this, context)
+    done(null, v2)
+  }
+
+  function fn2 (a, b, value, done) {
+    t.deepEqual(value, v2)
+    t.deepEqual(this, context)
+    done(null, v3)
+  }
+
+  function fn3 () {
+    t.fail('this should not be called')
+  }
+
+  function done () {
+    t.fail('this should not be called')
+  }
+})
