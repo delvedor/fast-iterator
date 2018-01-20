@@ -56,6 +56,14 @@ a b { winter: 'is coming' } { context: true }
 { winter: 'has come' } { context: true }
 ```
 
+If you need to release the internal Object holder for performances reasons, you can call the fourth parameter of the iterator: `release.`
+```js
+function iterator (fn, result, done, release) {
+  if (someCondition) return release()
+  return fn(this.a, this.b, result, done)
+}
+```
+
 <a name="acknowledgements"></a>
 ## Acknowledgements
 
