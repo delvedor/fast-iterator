@@ -31,15 +31,15 @@ function fast (functions, context) {
     var that = this
 
     this._next = function () {
-      if (that.i === that.functionsLen) {
-        that.done.call(that.context, null, that.value)
-        holder.release(that)
+      if (this.i === this.functionsLen) {
+        this.done.call(this.context, null, this.value)
+        holder.release(this)
         return
       }
-      var res = that.iterator(that.functions[that.i++], that.value, that._done)
+      var res = this.iterator(this.functions[this.i++], this.value, this._done)
       if (res && typeof res.then === 'function') {
-        res.then(that._resolve)
-           .catch(that._reject)
+        res.then(this._resolve)
+           .catch(this._reject)
       }
     }
 
