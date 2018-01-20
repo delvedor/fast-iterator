@@ -36,11 +36,15 @@ function fast (functions, context) {
         holder.release(that)
         return
       }
-      var res = that.iterator(that.functions[that.i++], that.value, that._done)
+      var res = that.iterator(that.functions[that.i++], that.value, that._done, that._releaseHolder)
       if (res && typeof res.then === 'function') {
         res.then(that._resolve)
            .catch(that._reject)
       }
+    }
+
+    this._releaseHolder = function () {
+      holder.release(that)
     }
 
     this._done = function (err, value) {
